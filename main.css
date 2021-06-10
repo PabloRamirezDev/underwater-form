@@ -1,0 +1,259 @@
+/* Screen size breakpoints - These are the max width values */
+/* sm: 440px */
+/* md: 768px */
+/* lg: 1024px */
+/* xl: 1440px */
+
+/* Importing Poppins font form Google fonts: */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;800&display=swap");
+
+/* Declare root variables */
+:root {
+  --white: #eee;
+  --light: rgb(185, 207, 228);
+  --dark: rgb(0, 16, 32);
+  --dark-grad: linear-gradient(
+    to bottom right,
+    rgb(42, 74, 104),
+    rgb(0, 16, 32)
+  );
+}
+
+/* General resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+/* Declaring main font family */
+html {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+}
+
+/* Responsive font sizes */
+@media (min-width: 440px) {
+  :root {
+    font-size: 13px;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1800px) {
+  :root {
+    font-size: 30px;
+  }
+}
+
+/* Hide and show classes */
+.hide {
+  display: none !important;
+}
+.show:not(.hide) {
+  animation: show 0.4s ease-out 0.15s 1 both;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0%;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 100%;
+    transform: scale(100%);
+  }
+}
+
+h1,
+label,
+footer {
+  color: var(--white);
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--dark-grad);
+}
+
+.container * {
+  z-index: 10;
+}
+
+h1 {
+  letter-spacing: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+/* Login Form Element */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+}
+
+@media (min-width: 440px) {
+  .login-form {
+    width: 65%;
+  }
+}
+@media (min-width: 768px) {
+  .login-form {
+    width: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  .login-form {
+    width: 50%;
+  }
+}
+@media (min-width: 1440px) {
+  .login-form {
+    width: 45%;
+  }
+}
+
+/* Form elements classes */
+
+.form-label,
+.form-button,
+.form-control,
+.form-group {
+  display: block;
+  width: 100%;
+}
+
+.form-control,
+.form-button {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  height: 4rem;
+}
+
+.form-group {
+  margin: 0 0 1.5rem 0;
+}
+
+.form-label {
+  font-size: 1.2rem;
+  font-weight: 200;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  padding: 1rem 2.5rem;
+  background-color: var(--light);
+  border: none;
+  transition-duration: 0.3s;
+  font-weight: 400;
+}
+
+.form-control:focus {
+  outline: none;
+  font-size: 1.3rem;
+  padding: 0.4rem 2.5rem;
+  letter-spacing: 6px;
+  font-weight: 300;
+}
+
+.form-button {
+  border: 3px solid var(--white);
+  background-color: var(--dark);
+  color: var(--white);
+  margin-top: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.form-button:hover {
+  background-color: color-mod(var(--dark), lightness(80%));
+  cursor: pointer;
+}
+
+.form-button:focus {
+  outline: none;
+  border: 5px double;
+}
+
+/* Acknowledgement footer styles */
+
+.ack {
+  text-align: center;
+}
+
+.ack a,
+.ack a:visited {
+  text-decoration: none;
+  color: #ddd;
+}
+
+/* Bubbles effect */
+.bubbles {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.outer-bubble {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  bottom: -80px;
+  left: calc(5% * var(--j) + 5%);
+  animation: float 6s cubic-bezier(0, 0, 0.25, 0.91) calc(var(--i) * 1.3s)
+    infinite;
+}
+
+.bubble {
+  height: calc(10% * var(--k) + 80%);
+  width: calc(10% * var(--k) + 80%);
+  border-radius: 50%;
+  border: 1px solid rgb(231, 239, 247);
+  background: radial-gradient(rgb(168, 213, 255), rgb(102, 160, 214));
+  position: relative;
+  bottom: 0;
+  left: 0;
+  opacity: 10%;
+  animation: wave 0.8s linear calc(var(--j) * 0.1s) infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-110vh);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(12px);
+  }
+  100% {
+    transform: translateX(-12px);
+  }
+}
